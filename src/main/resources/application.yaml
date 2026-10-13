@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: security-seven
+    profiles:
+      active: default
+      include: local
+    mvc:
+      pathmatch:
+        matching-strategy: ant-path-matcher
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/security_seven
+    username: security_seven
+    password: leetj1485+
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    properties:
+      hibernate:
+        default_schema: security_seven
+        hbm2ddl.create_namespaces: true
+        jdbc:
+          batch_size: 120
+        order_inserts: true
+        order_updates: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 9090
+
+jwt:
+  secret: hello-my-name-is-dev-ltj-im-korean-web-developer
+  access-token-expire-time: 60000 # 60초 (1분)
+  refresh-token-expire-time: 1209600000 # (14일)
